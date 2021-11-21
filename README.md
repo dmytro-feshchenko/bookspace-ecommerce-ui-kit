@@ -1,9 +1,31 @@
 # Bookspace Ecommerce Shared Components Library
 
+Moved away from [bookspace-ecommerce](https://github.com/technoboom/bookspace-ecommerce) project to emphasis independance
+and reusability of this library.
+
 ## Description
 
-This is a common components library hosted on [Bit.dev](https://bit.dev). We use latest [Bit v15: Harmony (now in open beta)](https://harmony-docs.bit.dev/) version.
-Those components hosted on [Bit.dev Cloud Server](https://bit.dev) and consumed by both Dashboard (`../dashboard`) and Storefront (`../storefront`) clients.
+This is a common components library hosted on [Bit.dev](https://bit.dev). I use latest [Bit v15: Harmony (now in open beta)](https://harmony-docs.bit.dev/) version.
+Those components hosted on [Bit.dev Cloud Server](https://bit.dev) and used on [bookspace-ecommerce](https://github.com/technoboom/bookspace-ecommerce) project (both [Dashboard](#) and [Storefront](https://github.com/technoboom/bookspace-ecommerce/tree/main/client/storefront)).
+
+## Purpose:
+
+This project serves mostly educational purpose. Just to try out how to build independent components and investigate how to compose them into large apps. I'm following Component Driven Architecture and doing small independent components which can be easily tested, deployed, versioned and imported into any existing app.
+
+Each component consists of:
+* source code of the component (+ styles)
+* jest specification (for testing)
+* documentation with live samples
+* compositions with this component
+* relations with other components
+
+## Stack:
+
+Mostly use the following tools/libs:
+
+1. [Bit.dev](https://bit.dev) - v15 Harmony (beta)
+2. React + TypeScript + SCSS
+3. [Jest](https://jestjs.io/) with [React Testing Library](https://testing-library.com/docs/react-testing-library)
 
 ## Quick start:
 
@@ -33,26 +55,29 @@ bit start
 Show all info about component (including the env, the files and the dependencies):
 
 ```bash
-bit show ui/button
+bit show design/base-ui/input/button
 ```
 
-## What's included
+## Testing Approach:
 
-- **workspace.jsonc**
+I use TDD approach when developing components. So, typically if you need to add some new logic to the component - think about it first, add necessary tests and improve component afterwards to pass test.
 
-This is the main configuration file of your bit workspace. Here you can modify the workspace name and icon as well as default directory and scope. It is where dependencies are found when you install anything. It is also where you register aspects, bit extensions as well as apply the environments for your components. This workspace has been setup so that all components use the React env. However you can create other components and apply other envs to them such as node, html, angular and aspect envs.
+[Link to documentation here](https://harmony-docs.bit.dev/building-with-bit/testing-components).
 
-- **.bitmap**
+The following addons used (alongside to Jest test runner):
+* [Testing Library](https://testing-library.com)
+* [Testing Library: user-event](https://testing-library.com/docs/ecosystem-user-event) - a companion library for [Testing Library](https://testing-library.com) that provides more advanced simulation of browser interactions than the built-in `fireEvent` method.
 
-This is an auto-generated file and includes the mapping of your components. There is one component included here. In order to remove this component you can run the following command.
+Usually `bit start` takes care of tests and running them automatically.
 
+But if you need to run them on demand, there are:
 
-- **Demo Components**
-
-A folder (unless the --empty flag was used) containing demo components are included in this workspace. These components are used to demonstrate the different features of Bit. If you would like to remove these components you can run the following command.
-
-```jsx
-bit remove "ui/*" --delete files
+```bash
+bit test
 ```
 
-This removes the components from the bitmap as well as removes the files.
+To get code coverage report you can use `--coverage` flag:
+
+```bash
+bit test --coverage
+```

@@ -45,6 +45,8 @@
         "@teambit/eslint-config-bit-react": "~0.0.367",
         "@teambit/harmony": "0.2.11",
         "@teambit/react.templates.themes.theme": "0.0.4",
+        "@testing-library/dom": "8.11.1",
+        "@testing-library/user-event": "13.5.0",
         "@types/jest": "27.0.2",
         "@typescript-eslint/eslint-plugin": "4.29.3",
         "classnames": "2.3.1",
@@ -79,9 +81,9 @@
   "teambit.workspace/variants": {
     "{design/**}, {ui/**}, {pages/**}": {
       // uses the custom env
-      "company.scope/envs/my-react": {}
+      // "company.scope/envs/my-react": {}
       // uncomment the line below if you remove the custom env and remove the line above
-      // "teambit.react/react": {},
+      "teambit.react/react": {}
     },
     "{themes/**}": {
       "teambit.react/react": {}

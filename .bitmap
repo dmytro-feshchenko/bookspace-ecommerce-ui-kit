@@ -33,11 +33,11 @@
         "mainFile": "index.ts",
         "rootDir": "ecommerce/design/navigation/link"
     },
-    "envs/my-react": {
+    "my-react": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "demo/envs/my-react"
+        "rootDir": "ecommerce/envs/my-react"
     },
     "navigation/breadcrumbs": {
         "scope": "",

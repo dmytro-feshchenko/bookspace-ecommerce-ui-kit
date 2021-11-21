@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput } from './text';
 
-export const BasicText = () => (
-  <TextInput text="hello from Text" />
+export const BasicTextInput = () => (
+  <TextInput label="Basic test input" name="basic-text" />
 );

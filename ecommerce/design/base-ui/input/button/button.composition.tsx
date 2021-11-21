@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from './button';
 
-export const PrimaryButton = () => (
-  <Button>Primary button</Button>
+export const DefaultButton = () => (
+  <Button>Default button</Button>
 );
 
 export const TextButton = () => (
